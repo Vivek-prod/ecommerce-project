@@ -4,6 +4,7 @@ import "./App.css";
 import { Routes, Route } from "react-router";
 import { OrdersPage } from "./Pages/orders/OrdersPage";
 import { TrackingPage } from "./Pages/tracking/TrackingPage";
+import { NotFound } from "./Pages/notFound/NotFoundPage";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Route path="/checkout" element={<CheckoutPage />} />
       <Route path="/orders" element={<OrdersPage />} />
       <Route path="/tracking" element={<TrackingPage />} />
+      <Route path="*" element={<NotFound />} />
     </Routes>
   );
 }
