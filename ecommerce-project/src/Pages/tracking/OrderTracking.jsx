@@ -24,8 +24,6 @@ export function OrderTracking({ orderId, productId }) {
     return product.productId === productId;
   });
 
-  console.log(order);
-
   return (
     <div className="order-tracking">
       <Link className="back-to-orders-link link-primary" to="/orders">
