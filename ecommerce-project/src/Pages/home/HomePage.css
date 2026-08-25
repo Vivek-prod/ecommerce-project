@@ -155,3 +155,10 @@
   height: 34px;
   margin-top: 1px;
 }
+
+.no-products-found {
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 18px;
+  color: #565959;
+}
