@@ -2,7 +2,12 @@ import { DeliverOptions } from "./DeliveryOptions";
 import { CartItemDetails } from "./CartItemDetails";
 import { DeliverDate } from "./DeliveryDate";
 
-export function OrderSummary({ deliverOptions, cart }) {
+export function OrderSummary({
+  deliverOptions,
+  cart,
+  loadCart,
+  loadPaymentSummary,
+}) {
   return (
     <div className="order-summary">
       {deliverOptions.length > 0 &&
@@ -20,6 +25,8 @@ export function OrderSummary({ deliverOptions, cart }) {
                 <DeliverOptions
                   cartItem={cartItem}
                   deliverOptions={deliverOptions}
+                  loadCart={loadCart}
+                  loadPaymentSummary={loadPaymentSummary}
                 />
               </div>
             </div>
