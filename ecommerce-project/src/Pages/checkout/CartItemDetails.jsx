@@ -1,5 +1,5 @@
 import { formatMoney } from "../../utils/money";
-export function CartItemDetails({ cartItem }) {
+export function CartItemDetails({ cartItem, deleteCartItem }) {
   return (
     <>
       <img className="product-image" src={cartItem.product.image} />
@@ -12,7 +12,12 @@ export function CartItemDetails({ cartItem }) {
         <div className="product-quantity">
           <span className="quantity-label">Quantity:{cartItem.quantity}</span>
           <span className="update-quantity-link link-primary">Update</span>
-          <span className="delete-quantity-link link-primary">Delete</span>
+          <span
+            className="delete-quantity-link link-primary"
+            onClick={deleteCartItem}
+          >
+            Delete
+          </span>
         </div>
       </div>
     </>
