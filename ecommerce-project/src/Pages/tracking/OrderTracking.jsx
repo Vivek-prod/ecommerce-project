@@ -2,6 +2,7 @@ import axios from "axios";
 import dayjs from "dayjs";
 import { useEffect, useState } from "react";
 import { Link } from "react-router";
+import { ProgressBar } from "./ProgressBar";
 
 export function OrderTracking({ orderId, productId }) {
   const [order, setOrder] = useState(null);
@@ -23,7 +24,7 @@ export function OrderTracking({ orderId, productId }) {
     return product.productId === productId;
   });
 
-  console.log(productTrack);
+  console.log(order);
 
   return (
     <div className="order-tracking">
@@ -41,15 +42,7 @@ export function OrderTracking({ orderId, productId }) {
 
       <img className="product-image" src={productTrack.product.image} />
 
-      <div className="progress-labels-container">
-        <div className="progress-label">Preparing</div>
-        <div className="progress-label current-status">Shipped</div>
-        <div className="progress-label">Delivered</div>
-      </div>
-
-      <div className="progress-bar-container">
-        <div className="progress-bar"></div>
-      </div>
+      <ProgressBar productTrack={productTrack} order={order} />
     </div>
   );
 }
