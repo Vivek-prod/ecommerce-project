@@ -9,10 +9,12 @@ import { PaymentSummary } from "./PaymentSummary";
 export function CheckoutPage({ cart, loadCart }) {
   const [paymentSummary, setPaymentSummary] = useState(null);
   const [deliverOptions, setDeliveryOptions] = useState([]);
+
   const loadPaymentSummary = async () => {
     let response = await axios.get("/api/payment-summary");
     setPaymentSummary(response.data);
   };
+
   useEffect(() => {
     const fetchCheckoutData = async () => {
       let response = await axios.get(

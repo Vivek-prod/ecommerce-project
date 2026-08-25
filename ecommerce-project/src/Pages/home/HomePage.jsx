@@ -5,6 +5,8 @@ import "./HomePage.css";
 import checkmark from "../../assets/images/icons/checkmark.png";
 import { ProductsGrid } from "./ProductsGrid";
 
+window.axios = axios;
+
 export function HomePage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
 
