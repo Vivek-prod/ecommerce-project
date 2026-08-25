@@ -1,7 +1,7 @@
 import { Header } from "../../Components/Header";
 import "./OrdersPage.css";
 import axios from "axios";
-import { useEffect, useState, Fragment } from "react";
+import { useEffect, useState } from "react";
 import { OrdersGrid } from "./OrdersGrid";
 
 export function OrdersPage({ cart }) {
@@ -9,7 +9,7 @@ export function OrdersPage({ cart }) {
 
   useEffect(() => {
     const fetchOrdersData = async () => {
-      const response = await axios("/api/orders?expand=products");
+      const response = await axios.get("/api/orders?expand=products");
       setOrders(response.data);
     };
     fetchOrdersData();
