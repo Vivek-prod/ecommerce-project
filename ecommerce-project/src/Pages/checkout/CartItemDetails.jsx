@@ -47,6 +47,8 @@ export function CartItemDetails({
             onKeyDown={(event) => {
               if (event.key === "Enter") {
                 saveUpdate();
+              } else if (event.key === "Escape") {
+                setIsUpdate(false);
               }
             }}
             style={{ display: isUpdate ? "inline-block" : "none" }}
@@ -63,6 +65,7 @@ export function CartItemDetails({
           <span
             className="update-quantity-link link-primary"
             onClick={updateItemQuantity}
+            style={{ display: !isUpdate ? "inline-block" : "none" }}
           >
             Update
           </span>
