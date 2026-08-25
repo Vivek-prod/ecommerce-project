@@ -1,8 +1,11 @@
 import { Header } from "../../Components/Header";
 import "./TrackingPage.css";
 import { OrderTracking } from "./OrderTracking";
+import { useParams } from "react-router";
 
 export function TrackingPage({ cart }) {
+  const { orderId, productId } = useParams();
+
   return (
     <>
       <title>Tracking Page</title>
@@ -10,7 +13,7 @@ export function TrackingPage({ cart }) {
       <Header cart={cart} />
 
       <div className="tracking-page">
-        <OrderTracking />
+        <OrderTracking orderId={orderId} productId={productId} />
       </div>
     </>
   );

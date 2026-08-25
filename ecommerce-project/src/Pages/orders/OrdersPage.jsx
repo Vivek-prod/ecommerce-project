@@ -15,8 +15,6 @@ export function OrdersPage({ cart }) {
     fetchOrdersData();
   }, []);
 
-  console.log(orders);
-
   return (
     <>
       <link rel="icon" type="image" href="orders-favicon.png" />
