@@ -5,7 +5,7 @@ import "./HomePage.css";
 import checkmark from "../../assets/images/icons/checkmark.png";
 import { ProductsGrid } from "./ProductsGrid";
 
-export function HomePage({ cart }) {
+export function HomePage({ cart, loadCart }) {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,11 @@ export function HomePage({ cart }) {
       <Header cart={cart} />
 
       <div className="home-page">
-        <ProductsGrid products={products} checkmark={checkmark} />
+        <ProductsGrid
+          products={products}
+          checkmark={checkmark}
+          loadCart={loadCart}
+        />
       </div>
     </>
   );
