@@ -1,17 +1,27 @@
 import axios from "axios";
 import { formatMoney } from "../../utils/money";
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export function Product({ product, loadCart, checkmark }) {
   const [quantity, setQuantity] = useState(1);
+  const [isAdded, setIsAdded] = useState(false);
+  const timeoutRef = useRef(null);
 
   const addToCart = async () => {
     await axios.post("/api/cart-items", {
       productId: product.id,
       quantity,
     });
-
     await loadCart();
+
+    setIsAdded(true);
+
+    if (timeoutRef.current) {
+      clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = setTimeout(() => {
+      setIsAdded(false);
+    }, 2000);
   };
 
   const quantitySelector = (event) => {
@@ -56,7 +66,7 @@ export function Product({ product, loadCart, checkmark }) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart">
+      <div className="added-to-cart" style={{ opacity: isAdded ? 1 : 0 }}>
         <img src={checkmark} />
         Added
       </div>
