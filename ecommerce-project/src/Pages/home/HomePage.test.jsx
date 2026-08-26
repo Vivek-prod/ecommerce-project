@@ -1,5 +1,3 @@
-import { userEvent } from "@testing-library/user-event";
-import { Product } from "./Product";
 import { expect, it, describe, vi, beforeEach } from "vitest";
 import { render, screen, within } from "@testing-library/react";
 import axios from "axios";
