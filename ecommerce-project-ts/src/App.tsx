@@ -9,6 +9,10 @@ function App() {
   const message = "hello";
   console.log(message);
 
+  count.toLowerCase();
+  message.toLowerCase();
+
+  //  message.toFixed(); to fixed only works for numbers
   return (
     <>
       <div>
